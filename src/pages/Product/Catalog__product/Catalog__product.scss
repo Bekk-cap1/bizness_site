@@ -1,0 +1,271 @@
+
+
+.header__product{
+    .container{
+        padding: 0 262px;
+        .product__inner{
+            h3{
+                margin-top: 30px;
+                a{
+                    cursor: pointer;
+                    color: #000;
+                }
+                .a__catal{
+                    color: crimson;
+                }
+                strong{
+                    color: green;
+                }
+            }
+            div{
+                display: flex;
+                .product__right{
+                    img{
+                        width: 505px;
+                        height: 622px;
+                        object-fit: cover;
+                    }
+                }
+                .product__main{
+                    display: block;
+                    margin-left: 50px;
+                    h2{
+                        font-size: 40px;
+                        line-height: 42px;
+                        margin-bottom: 0;
+                    }
+                    h5{
+                        margin-top: 20px;
+                    }
+                    span{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin: 0;
+                        h6{
+                            margin-top: 30px;
+                            padding-left: 20px;
+                            font-size: 18px;
+                            position: relative;
+                            color: green;
+                            margin-bottom: 0;
+                            &::before{
+                                left: 0px;
+                                position: absolute;
+                            }
+                            strong{
+                                margin: 0;
+                            }
+                        }
+                        h5{
+                            font-size: 18px;
+                            strong{
+                                color: crimson;
+                            }
+                        }
+                    }
+                    hr{
+                        background-color: #E6E8E7;
+                        border: none;
+                        padding: 1px;
+                    }
+                    span{
+                        display: flex;
+                        align-items: center;
+                        h2{
+                            margin-top: 0;
+                        }
+                        b{
+                            font-size: 50px;
+                            color: crimson;
+                            margin-left: 40px;
+                        }
+                        h4{
+                            text-decoration: line-through;
+                            margin-top: 30px;
+                        }
+                    }
+                    div{
+                        .span__div{
+                            display: flex;
+                            align-items: center;
+                            text-align: center;
+                            b{
+                                border: 1px solid #E6E8E7;
+                                display: flex;
+                                align-items: center;
+                                margin: 0;
+                                font-size: 40px;
+                                padding: 0;
+                                padding: 0px 20px 10px 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        a{
+                            button{
+                                background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                                color: #fff;
+                                border: none;
+                                margin-left: 20px;
+                                width: 450px;
+                                height: 65px;
+                                font-size: 28px;
+                            }
+
+                        }
+                        margin-bottom: 20px;
+                    }
+                    .podel{
+                        text-align: center;
+                        width: 400px;
+                        margin: 0 auto;
+                        display: flex;
+                        align-items: center;
+                        h5{
+                            font-size: 20px;
+                            margin-right: 40px;
+                        }
+                        img{
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+
+                }
+            }
+
+            .product__left{
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+                .img{
+                    width: 34px;
+                    height: 26px;
+                    margin-left: 68px;
+                    margin-top: 70px;
+                }
+                .idish{
+                    width: 34px;
+                    height: 26px;
+                    margin-left: 68px;
+                    margin-top: 18px;
+                    transform: rotate(180deg);
+                }
+                div{
+                    width: 100%;
+                    overflow: hidden;
+                    ul{
+                        display: flex;
+                        list-style-type: none;
+                        width: 100%;
+                        box-shadow: 0 0 ;
+                        .swiper {
+                            border-radius: 25px;
+                            width: 100%;
+                        }
+                        
+                        .swiper-slide {
+                            text-align: center;
+                            font-size: 18px;
+                            width: 100%;
+                            /* Center slide text vertically */
+                            height: 180px;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                        }
+                        
+                        .swiper-slide img {
+                            transition: 0.1s ease-in-out;
+                            &:active{
+                                transform: scale(0.96)
+                            }
+                            display: block;
+                            width: 130px;
+                            box-shadow: 2px 5px 26px rgb(166, 157, 166);
+                            height: 130px;
+                            border-radius: 25px;
+                            padding: 5px;
+                            object-fit: cover;
+                          }
+                    }
+                }
+            }
+        }
+
+        .opisaniye{
+            div{
+                h2{
+                    font-size: 40px;
+                    color: #031412;
+                }
+            }
+        }
+    }
+    .main__footer{
+        .main__footer__up{
+            text-align: center;
+            position: relative;
+            margin: 0 auto;
+            width: 1920px;
+            padding: 0 262px;
+            .footerchaa{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h2{
+                    font-size: 58px;
+                    margin-bottom: 10px;
+                    color: #031412;
+                }
+                button{
+                    color: #fff;
+                    height: 50px;
+                    background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+                    width: 327px;
+                    border: none;
+                    margin-top: 70px;
+                }
+            }
+            .ul{
+                display: flex;
+                position: absolute;
+                left: 48%;
+                bottom: 110px;
+                list-style-type: none;
+                padding-left: 0;
+                .disactive{
+                    cursor: pointer;
+                    margin-right: 20px;
+                }
+                
+                .activee{
+                    cursor: pointer;
+                    margin-right: 20px;
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+            .dicrement{
+                position: absolute;
+                left: 0;
+                top: 250px;
+                padding: 5px 50px;
+                background-color: transparent;
+            }
+            .icrement{
+                position: absolute;
+                right: 0;
+                top: 250px;
+                transform: rotate(180deg);
+                padding: 5px 50px;
+                text-align: end;
+                background-color: transparent;
+            }
+        }
+
+    }
+}
