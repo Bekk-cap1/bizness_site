@@ -60,8 +60,8 @@ function Header() {
               }
               <img src={User__foto} alt="" />
             </div> */}
-            <Link to={"/signin"}><button className='login-btn'>signin</button></Link>
-            <Link to={"/signup"}><button className='login-btn'>signup</button></Link>
+            <Link to={"/signin"}><button className='login-btn'>Log In</button></Link>
+            <Link to={"/signup"}><button className='login-btn'>Sign Up</button></Link>
             <select id="" onChange={select_langu}>
               <option value="ru" selected={lan == 'ru' ? true : false}>Ru</option>
               <option value="en" selected={lan == 'en' ? true : false}>Eng</option>
