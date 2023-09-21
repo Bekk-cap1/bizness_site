@@ -3,21 +3,6 @@
     background: rgb(255, 0, 255);
     color: #fff;
 
-    // background: linear-gradient(90deg, rgba(255, 0, 254, 1) 0%, rgba(121, 9, 94, 1) 51%, rgba(255, 0, 254, 1) 100%) repeat-x 0 100% fixed,
-    //     linear-gradient(to top, #5080b1, #004e8c) fixed;
-    // animation: city 10s linear infinite;
-    // -webkit-animation: city 10s linear infinite;
-
-    // @keyframes city {
-    //     from {
-    //         background-position:  0%, 0 0;
-    //     }
-
-    //     to {
-    //         background-position: 100%, 0 0;
-    //     }
-    // }
-
     .footer__container {
         max-width: 1440px;
         margin: 0 auto;
@@ -95,6 +80,51 @@
             a {
                 color: #fff;
                 font-size: 22px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .footer{
+        .footer__container{
+            .footer__container__inner{
+                flex-direction: column;
+                margin: 0 20px;
+                padding: 0;
+                img{
+                    width: 100%;
+                }
+                .right, .left{
+                    margin: 0;
+                    padding: 0;
+                    width: 70%;
+                }
+                h2{
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .footer{
+        .footer__container{
+            .footer__container__inner{
+                flex-direction: column;
+                margin: 0 20px;
+                padding: 0;
+                img{
+                    width: 100%;
+                }
+                .right, .left{
+                    margin: 0;
+                    padding: 0;
+                    width: 90%;
+                }
+                h2{
+                    font-size: 32px;
+                }
             }
         }
     }
