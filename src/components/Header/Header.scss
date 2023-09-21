@@ -1,6 +1,4 @@
-
-
-.active{
+.active {
     color: #fff;
     position: fixed;
     top: 0;
@@ -16,6 +14,10 @@
         margin: 0 auto;
         padding: 15px 0;
 
+        .media {
+            display: none;
+        }
+
         .header__inner {
             display: flex;
             justify-content: space-between;
@@ -26,9 +28,7 @@
                 display: flex;
                 list-style: none;
                 font-size: 22px;
-                &:nth-child(2){
-                    display: none;
-                }
+
                 a {
                     color: #fff;
                     text-decoration: none;
@@ -99,6 +99,10 @@
         margin: 0 auto;
         padding: 0;
 
+        .media {
+            display: none;
+        }
+
         .header__inner {
             display: flex;
             justify-content: space-between;
@@ -110,6 +114,7 @@
                 list-style: none;
                 font-size: 22px;
                 padding: 20px 0;
+
                 a {
                     color: #fff;
                     text-decoration: none;
@@ -117,10 +122,8 @@
                     text-transform: inherit;
 
                 }
-                &:nth-child(2){
-                    display: none;
-                }
-                
+
+
             }
 
             select {
@@ -160,7 +163,7 @@
     }
 }
 
-.login-btn{
+.login-btn {
     width: 120px;
     height: 50px;
     background-color: #ff04f2;
@@ -192,6 +195,7 @@
             }
             .media{
                 position: relative;
+                display: block;
 
                 .header__inner__media{
                     width: 100%;
@@ -308,6 +312,7 @@
             }
             .media{
                 position: relative;
+                display: block;
                 .media__active{
                     color: #fff;
                     position: fixed;
@@ -429,11 +434,22 @@
     }
 }
 
+
 @media screen and (max-width: 860px) {
-    .header__sass{
-        .container{
-            .media{
-                .active__menu{
+    .active {
+        .container {
+            .media {
+                .active__menu {
+                    left: 10%;
+                }
+            }
+        }
+    }
+
+    .header__sass {
+        .container {
+            .media {
+                .active__menu {
                     left: 10%;
                 }
             }
@@ -442,10 +458,34 @@
 }
 
 @media screen and (max-width: 770px) {
-    .header__sass{
-        .container{
-            .media{
-                .active__menu{
+    .active {
+        .container {
+            .media {
+                .active__menu {
+                    left: 10%;
+                }
+            }
+        }
+    }
+
+    .header__sass {
+        .container {
+            .media {
+                .active__menu {
+                    width: 100%;
+                    left: 0;
+                    height: 80vh;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header__sass {
+        .container {
+            .media {
+                .active__menu {
                     width: 100%;
                     left: 0;
                     height: 80vh;
