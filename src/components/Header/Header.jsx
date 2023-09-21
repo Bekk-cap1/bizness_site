@@ -96,7 +96,7 @@ function Header() {
             <ul>
               {
                 dataPage?.map((e) => (
-                  <Link to={`/${e.en}`}><strong>{e[`${language}`]}</strong></Link>
+                  <Link to={`/${e.en}`} onClick={()=>setMenu(false)}><strong>{e[`${language}`]}</strong></Link>
                 ))
               }
             </ul>

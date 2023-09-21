@@ -178,7 +178,7 @@
 
 
 @media screen and (max-width:1200px) {
-    .active{
+    .active {
         color: #fff;
         position: fixed;
         top: 0;
@@ -187,32 +187,37 @@
         width: 100%;
         background: #d802cf;
         transition: 0.5s ease-in-out;
-    
-        .container{
+
+        .container {
             margin: 0 20px;
+
             .header__inner {
                 display: none;
             }
-            .media{
+
+            .media {
                 position: relative;
                 display: block;
 
-                .header__inner__media{
+                .header__inner__media {
                     width: 100%;
                     padding-top: 0px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     color: #fff;
-                    h1{
+
+                    h1 {
                         width: 100%;
                     }
-                    p{
+
+                    p {
                         width: 40px;
                         height: 30px;
                         margin-top: 20px;
                         cursor: pointer;
-                        span{
+
+                        span {
                             width: 32px;
                             background-color: #fff;
                             height: 3px;
@@ -220,7 +225,9 @@
                             transition: 0.3s ease-in-out;
                             display: block;
                             margin-top: 10px;
-                            &::before, &::after{
+
+                            &::before,
+                            &::after {
                                 content: '';
                                 position: relative;
                                 display: inline-block;
@@ -231,32 +238,39 @@
                                 border-radius: 2px;
                                 transition: 0.3s ease-in-out;
                             }
-                            &::before{
+
+                            &::before {
                                 top: -25px;
                                 transform: rotate(0deg);
                             }
-                            &::after{
+
+                            &::after {
                                 top: -25px;
                             }
                         }
-                        .span__active{
+
+                        .span__active {
                             color: transparent;
                             background-color: transparent;
-                            &::before{
+
+                            &::before {
                                 transform: rotate(45deg);
                                 top: -10px;
                             }
-                            &::after{
+
+                            &::after {
                                 transform: rotate(-45deg);
                                 top: -31px;
                             }
                         }
                     }
                 }
-                .none{
+
+                .none {
                     display: none;
                 }
-                .active__menu{
+
+                .active__menu {
                     align-items: center;
                     left: 20%;
                     display: flex;
@@ -270,22 +284,26 @@
                     top: 100px;
                     z-index: 999;
                     color: #fff;
-                    ul{
+
+                    ul {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-around;
                         height: 300px;
-                        a{
+                        padding-left: 0;
+
+                        a {
                             text-decoration: none;
                             color: #fff;
                             font-size: 22px;
                         }
                     }
-                    .account__login{
+
+                    .account__login {
                         display: flex;
                         flex-direction: column;
-                        
+
                         select {
                             width: 70px;
                             height: 40px;
@@ -304,16 +322,20 @@
             }
         }
     }
-    .header__sass{
-        .container{
+
+    .header__sass {
+        .container {
             margin: 0 20px;
+
             .header__inner {
                 display: none;
             }
-            .media{
+
+            .media {
                 position: relative;
                 display: block;
-                .media__active{
+
+                .media__active {
                     color: #fff;
                     position: fixed;
                     top: 0;
@@ -325,22 +347,25 @@
                 }
 
 
-                .header__inner__media{
+                .header__inner__media {
                     width: 100%;
                     padding-top: 10px;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     color: #fff;
-                    h1{
+
+                    h1 {
                         width: 100%;
                     }
-                    p{
+
+                    p {
                         width: 40px;
                         height: 30px;
                         margin-top: 20px;
                         cursor: pointer;
-                        span{
+
+                        span {
                             width: 32px;
                             background-color: #fff;
                             height: 3px;
@@ -348,7 +373,9 @@
                             transition: 0.3s ease-in-out;
                             display: block;
                             margin-top: 10px;
-                            &::before, &::after{
+
+                            &::before,
+                            &::after {
                                 content: '';
                                 position: relative;
                                 display: inline-block;
@@ -359,32 +386,39 @@
                                 border-radius: 2px;
                                 transition: 0.3s ease-in-out;
                             }
-                            &::before{
+
+                            &::before {
                                 top: -25px;
                                 transform: rotate(0deg);
                             }
-                            &::after{
+
+                            &::after {
                                 top: -25px;
                             }
                         }
-                        .span__active{
+
+                        .span__active {
                             color: transparent;
                             background-color: transparent;
-                            &::before{
+
+                            &::before {
                                 transform: rotate(45deg);
                                 top: -10px;
                             }
-                            &::after{
+
+                            &::after {
                                 transform: rotate(-45deg);
                                 top: -31px;
                             }
                         }
                     }
                 }
-                .none{
+
+                .none {
                     display: none;
                 }
-                .active__menu{
+
+                .active__menu {
                     align-items: center;
                     left: 20%;
                     display: flex;
@@ -398,22 +432,26 @@
                     top: 100px;
                     z-index: 999;
                     color: #fff;
-                    ul{
+
+                    ul {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-around;
                         height: 300px;
-                        a{
+                        padding-left: 0;
+
+                        a {
                             text-decoration: none;
                             color: #fff;
                             font-size: 22px;
                         }
                     }
-                    .account__login{
+
+                    .account__login {
                         display: flex;
                         flex-direction: column;
-                        
+
                         select {
                             width: 70px;
                             height: 40px;
@@ -481,14 +519,143 @@
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 560px) {
+    .active {
+        .container {
+            .media {
+                .header__inner__media {
+                    padding-top: 20px;
+                    p {
+                        margin-top: 00px;
+                        span {
+                            width: 20px;
+                            height: 2px;
+                            &::before,
+                            &::after {
+                                width: 20px;
+                                height: 2px;
+                                top: -9.5px;
+                            }
+
+                            &::after {
+                                top: -25px;
+                            }
+                        }
+                    }
+                }
+
+                .active__menu {
+                    left: 0%;
+                    width: 100%;
+
+                    ul {
+                        a {
+
+                            font-size: 16px;
+                        }
+                    }
+
+                    .account__login {
+                        .sign__up__buttons {
+                            a {
+                                .login-btn {
+                                    font-size: 18px;
+                                    height: 40px;
+                                    width: 100px;
+                                }
+                            }
+                        }
+
+                        select {
+                            height: 30px;
+                            font-size: 20px;
+                            margin-left: 40%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .header__sass {
         .container {
             .media {
+                .header__inner__media {
+                    padding-top: 20px;
+                    p {
+                        margin-top: 00px;
+                        span {
+                            width: 20px;
+                            height: 2px;
+                            &::before,
+                            &::after {
+                                width: 20px;
+                                height: 2px;
+                                top: -9.5px;
+                            }
+
+                            &::after {
+                                top: -25px;
+                            }
+                        }
+                    }
+                }
+
                 .active__menu {
                     width: 100%;
                     left: 0;
                     height: 80vh;
+
+                    ul {
+                        a {
+
+                            font-size: 16px;
+                        }
+                    }
+
+                    .account__login {
+                        .sign__up__buttons {
+                            a {
+                                .login-btn {
+                                    font-size: 18px;
+                                    height: 40px;
+                                    width: 100px;
+                                }
+                            }
+                        }
+
+                        select {
+                            height: 30px;
+                            font-size: 20px;
+                            margin-left: 40%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .active {
+        .container {
+            .media {
+                .header__inner__media {
+                    h1 {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header__sass {
+        .container {
+            .media {
+                .header__inner__media {
+                    h1 {
+                        font-size: 18px;
+                    }
                 }
             }
         }
