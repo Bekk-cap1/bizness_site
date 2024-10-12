@@ -3,9 +3,9 @@ import './Footer.scss'
 
 import Logo from '../../assets/image/logo.png'
 
-function Footer() {
+function Footer({style}) {
   return (
-    <div className='footer'>
+    <div className='footer' style={style}>
       <div className="footer__container">
         <div className="footer__container__inner">
           <div className="right">

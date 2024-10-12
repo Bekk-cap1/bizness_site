@@ -1,21 +1,23 @@
-*{
+* {
     margin: 0 auto;
     box-sizing: border-box;
 
 }
-.signup{
+
+.signup {
     margin-bottom: 150px;
-    h2{
+
+    h2 {
         font-size: 50px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         display: flex;
         align-items: center;
-        justify-content: center;  
+        justify-content: center;
         // margin-left: 9%;  
     }
 }
 
-form{
+form {
     margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
@@ -23,18 +25,44 @@ form{
     flex-wrap: wrap;
     flex-direction: column;
     width: 50%;
-    input{
+    position: relative;
+
+    div {
+        width: 100%;
+        text-align: center;
+        position: relative;
+
+        input {
+            width: 50%;
+            height: 60px;
+            outline: none;
+            padding-left: 20px;
+            font-size: 24px;
+        }
+
+        i {
+            right: 28%;
+            position: absolute;
+            top: 10%;
+            transform: translateY(100%);
+            color: gray;
+        }
+    }
+
+    input {
         width: 50%;
         height: 60px;
         outline: none;
         padding-left: 20px;
         font-size: 24px;
+        position: relative;
     }
-    button{
+
+    button {
         width: 50%;
         height: 65px;
         border-radius: 10px;
-        background-color: #eb15e0;  
+        background-color: #eb15e0;
         font-size: 30px;
         color: aliceblue;
         border-color: none;
@@ -44,15 +72,9 @@ form{
     }
 }
 
-.wrapp{
+.wrapp {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 50vh;
-    img{
-       width: 50%;
-       height: 150%; 
-       z-index: -1;
-       object-fit: cover;
-    }
 }

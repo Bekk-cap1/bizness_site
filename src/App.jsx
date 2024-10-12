@@ -33,7 +33,6 @@ function App() {
     })
   }, [])
   
-
   return (
     <div className="App">
       <Header/>
@@ -48,7 +47,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}/> 
         <Route path='/signin' element={<SignIn/>}/> 
       </Routes>
-      <Footer/>
+      {local.pathname == '/signin' || local.pathname == '/signup' ? <Footer style={{ position: 'absolute', bottom: '0', left: '0', right: '0' }}/> : <Footer/>} 
     </div>
   );
 }

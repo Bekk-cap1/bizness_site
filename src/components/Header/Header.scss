@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     z-index: 999;
-    height: 80px;
+    height: 90px;
     width: 100%;
     background: #d802cf;
     transition: 0.5s ease-in-out;
@@ -12,7 +12,7 @@
     .container {
         max-width: 1440px;
         margin: 0 auto;
-        padding: 15px 0;
+        padding: 0;
 
         .media {
             display: none;
@@ -53,7 +53,19 @@
             .account__login {
                 display: flex;
                 align-items: center;
-
+                .basket__btn{
+                    cursor: pointer;
+                    font-size: 22px;
+                    border: 1px solid #00ff00;
+                    background: none;
+                    color: #00ff00;
+                    padding: 15px 10px;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
+                .signin__signup{
+                    padding: 15px 0;
+                }
                 &__user {
                     display: flex;
                     align-items: center;
@@ -142,7 +154,31 @@
             .account__login {
                 display: flex;
                 align-items: center;
-
+                .basket__btn {
+                    cursor: pointer;
+                    font-size: 22px;
+                    border: 1px solid #00ff00; /* Зеленая граница */
+                    background: none; /* Без фона */
+                    color: #00ff00; /* Зеленый цвет текста */
+                    padding: 15px 10px; /* Отступы внутри кнопки */
+                    border-radius: 5px; /* Закругленные углы */
+                    margin: 0 10px; /* Отступы с боков */
+                    transition: all 0.2s ease-in-out; /* Плавный переход для всех изменений */
+                  
+                    &:hover {
+                      background-color: #00ff00; /* Зелёный фон при наведении */
+                      color: #fff; /* Белый цвет текста при наведении */
+                    }
+                  
+                    &:active {
+                      transform: scale(0.98); /* Уменьшение кнопки при нажатии */
+                      transition: 0.2s ease-in-out; /* Плавная анимация */
+                    }
+                  }
+                  
+                .signin__signup{
+                    padding: 15px 0;
+                }
                 &__user {
                     display: flex;
                     align-items: center;
