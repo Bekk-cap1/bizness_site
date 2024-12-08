@@ -1,6 +1,6 @@
 .home {
     width: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 
     &__container {
@@ -215,9 +215,10 @@
 
                     li {
                         border-radius: 25px;
-                        box-shadow: 2px 5px 46px rgb(232, 227, 227);
+                        box-shadow: 0 0 31px 8px rgba(186,175,186,1);
                         width: 350px;
                         margin: 20px;
+                        padding: 0 20px;
                         cursor: pointer;
 
                         .swiper {
@@ -252,8 +253,8 @@
                         }
 
                         .about_product {
-                            margin-left: 30px;
                             padding-bottom: 20px;
+                            color: #72596f;
 
                             h6 {
                                 font-size: 14px;
@@ -277,8 +278,18 @@
                                     text-align: start;
                                     margin-left: 0;
                                 }
+                                button{
+                                    width: 100px;
+                                    height: 50px;
+                                    background: none;
+                                    border: 1px solid rgba(239, 10, 242, 1);
+                                    border-radius: 15px;
+                                    cursor: pointer;
+                                    z-index: 9999;
+                                }
                                 i{
-                                    font-size: 25px;
+                                    font-size: 30px;
+                                    color: rgba(239, 10, 242, 1);
                                 }
                             }
                         }

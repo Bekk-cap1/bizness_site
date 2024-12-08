@@ -97,9 +97,9 @@ function Header() {
           </ul>
 
           <div className="account__login">
-            <button className="basket__btn ">В корзину <i class="bi bi-basket"></i></button>
             {user ? (
               <div className="account__login__user">
+                <button onClick={()=>navigate('/korzinka')} className="basket__btn ">В корзину <i class="bi bi-basket"></i></button>
                 <h4>{user.login}</h4>
                 <img src={User__foto} alt="User" />
               </div>

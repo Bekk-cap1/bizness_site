@@ -24,9 +24,62 @@ function Catalog__product() {
 
     const local = useLocation()
     const navig = local.pathname.split('/products/').join('')
-    console.log(url_img);
 
     const lan = window.localStorage.getItem('language')
+
+
+    const [searchData, setSearchData] = useState()
+
+
+  const userId = window.sessionStorage.getItem("userId");
+
+    const navigate = useNavigate()
+    const [userData, setUserData] = useState([]);
+    const listHome = searchData?.length ? searchData : listData.slice(-15, -5);
+    const user = userData.find((e) => e.id === userId);
+    useEffect(() => {
+        fetch("https://638208329842ca8d3c9f7558.mockapi.io/user_data", {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                Accept: "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+        })
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Ошибка при выполнении запроса");
+                }
+                return res.json();
+            })
+            .then((data) => {
+                setUserData(data); // Логируем полученные данные
+            })
+            .catch((error) => {
+                console.error("Ошибка при выполнении запроса:", error);
+            });
+    }, []);
+    const { korzinka, setKorzinka } = useContext(Context); // Инициализация как пустого массива
+    useEffect(() => {
+
+    }, [korzinka]);
+    const pushKorzinka = (id) => {
+        setKorzinka((prevKorzinka) => {
+            // Проверяем, есть ли элемент в текущем состоянии корзины
+            const itemExists = prevKorzinka.some((item) => item.id === id);
+            if (itemExists) {
+                console.log("Этот элемент уже существует в корзине");
+                return prevKorzinka; // Возвращаем корзину без изменений
+            } else {
+                const itemToAdd = searchData?.length ? searchData.find((item) => item.id === id) : listData.find((item) => item.id === id);
+                if (itemToAdd) {
+                    console.log("Элемент добавлен в корзину:", itemToAdd);
+                    return [...prevKorzinka, { ...itemToAdd, quantity: 1 }];
+                }
+            }
+            return prevKorzinka; // Возвращаем корзину без изменений, если ничего не найдено
+        });
+    };
 
     return (
         <>
@@ -49,10 +102,10 @@ function Catalog__product() {
                                 {
                                     listData?.map((e, i) => (
                                         navig == e.id ?
-                                            
+
                                             <>
                                                 <h2>{e[`list_text_${lan}`]}</h2>
-                                                <span>
+                                                <span className='stocks'>
                                                     <h6>{e[`stock_${lan}`]}: <strong>{e.stock}</strong></h6>
                                                 </span>
                                                 <hr />
@@ -79,9 +132,24 @@ function Catalog__product() {
                                             listData?.map((e) => (
                                                 navig == e.id ?
                                                     <>
-                                                        <b onClick={() => product !== 1 ? setProduct(product - 1) : ''}>-</b>
-                                                        <b>{product}</b>
-                                                        <b onClick={() => e.stock > product ? setProduct(product + 1) : ''}>+</b>
+                                                        {
+                                                            user ?
+                                                                <button onClick={(event) => {
+                                                                    event.stopPropagation() // Предотвращаем срабатывание onClick на <li>
+                                                                    pushKorzinka(e.id)
+                                                                }}>{korzinka.some((item) => item.id === e.id)
+                                                                    ? 'Товар в корзине'  // Текст кнопки после добавления товара
+                                                                    : 'Добавить в корзину'}
+                                                                    <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                                                                </button> : <button onClick={(event) => {
+                                                                    event.stopPropagation(); // Предотвращаем срабатывание onClick на <li>
+                                                                    navigate('/signin');
+                                                                }}> {korzinka.some((item) => item.id === e.id)
+                                                                    ? 'Товар в корзине'  // Текст кнопки после добавления товара
+                                                                    : 'Добавить в корзину'}
+                                                                    <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                                                                </button>
+                                                        }
                                                     </>
                                                     : ''
                                             ))

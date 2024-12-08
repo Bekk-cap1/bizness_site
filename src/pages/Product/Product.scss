@@ -42,7 +42,7 @@
                     margin-top: 70px;
 
                     .cat_item {
-                        box-shadow: 2px 6px 26px rgb(184, 178, 184);
+                        box-shadow: 0 0 31px 8px rgba(186,175,186,1);
                         border-radius: 25px;
                         position: relative;
                         cursor: pointer;
@@ -83,13 +83,16 @@
                         &:nth-child(1) {
                             position: relative;
                             width: 70%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
                             margin-top: 20px;
                             input {
                                 transition: 1s ease;
                                 height: 60px;
                                 border: none;
                                 font-size: 26px;
-                                margin-left: 35%;
+                                margin-left: 0%;
                                 padding-left: 10px;
                                 padding-bottom: 10px;
                                 border-bottom: 1px solid rgb(255, 0, 255);
@@ -98,7 +101,7 @@
                                 color: rgb(255, 0, 255);
                                 &:focus{
                                     width: 100%;
-                                    margin-left: 0;
+                                    margin-left: 30px;
                                 }
                                 &::placeholder {
                                     color: rgb(255, 0, 255);
@@ -114,8 +117,8 @@
                                 color: #fff;
                                 font-size: 22px;
                                 z-index: 1;
-                                margin-left: -150px;
-                                margin-top: -20px;
+                                margin-left: 900px;
+                                margin-top: -50px;
                                 transition: 0.2s ease-in-out;
                                 &:active{
                                     transform: scale(.98);
@@ -124,7 +127,7 @@
                         }
 
                         &:nth-child(2) {
-                            margin-top: 20px;
+                            margin-top: 60px;
                             width: 22%;
                             // padding-left: 20%;
                             h4 {
@@ -167,8 +170,9 @@
 
                     li {
                         border-radius: 25px;
-                        box-shadow: 2px 5px 46px rgb(232, 227, 227);
+                        box-shadow: 0 0 31px 8px rgba(186,175,186,1);
                         width: 320px;
+                        padding: 0 20px;
                         margin: 20px;
                         cursor: pointer;
                         .swiper {
@@ -203,19 +207,43 @@
                         }
 
                         .about_product {
-                            margin-left: 30px;
                             padding-bottom: 20px;
-                            h6{
+                            color: #72596f;
+
+                            h6 {
                                 font-size: 14px;
                                 margin: 0;
                                 margin-bottom: 20px;
                             }
-                            h2{
+
+                            h2 {
                                 margin-bottom: 5px;
                             }
-                            p{
+
+                            p {
                                 margin: 0;
                                 margin-bottom: 30px;
+                            }
+                            div{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                h3{
+                                    text-align: start;
+                                    margin-left: 0;
+                                }
+                                button{
+                                    width: 100px;
+                                    height: 50px;
+                                    background: none;
+                                    border: 1px solid rgba(239, 10, 242, 1);
+                                    border-radius: 15px;
+                                    cursor: pointer;
+                                }
+                                i{
+                                    font-size: 30px;
+                                    color: rgba(239, 10, 242, 1);
+                                }
                             }
                         }
                     }
@@ -226,6 +254,7 @@
                     display: flex;
                     align-items: center;
                     text-align: center;
+                    margin-bottom: 50px;
                     ul{
                         padding-left: 0;
                         display: flex;

@@ -78,7 +78,7 @@ function Product() {
 
 
   const sortter = (e) => {
-    setCount(count+1)
+    setCount(count + 1)
     setListArr2(e.target.id)
     e.target.parentElement.classList.toggle('cat_item_active')
     if (catArr.find((item) => item == e.target.parentElement.id)) {
@@ -147,7 +147,7 @@ function Product() {
   if (data) {
     listProduct.push(data)
   }
-  if(categArr){
+  if (categArr) {
     listProduct.push(categArr)
   }
 
@@ -196,6 +196,71 @@ function Product() {
     })
   }
 
+
+  const userId = window.sessionStorage.getItem("userId");
+  const [userData, setUserData] = useState([]);
+  const listHome = searchData?.length ? searchData : listData.slice(-15, -5);
+  const user = userData.find((e) => e.id === userId);
+  useEffect(() => {
+    fetch("https://638208329842ca8d3c9f7558.mockapi.io/user_data", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Ошибка при выполнении запроса");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setUserData(data); // Логируем полученные данные
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error);
+      });
+  }, []);
+
+
+  const { korzinka, setKorzinka } = useContext(Context); // Инициализация как пустого массива
+  useEffect(() => {
+
+  }, [korzinka]);
+  const pushKorzinka = (id) => {
+    setKorzinka((prevKorzinka) => {
+      // Проверяем, есть ли элемент в текущем состоянии корзины
+      const itemExists = prevKorzinka.some((item) => item.id === id);
+      if (itemExists) {
+        console.log("Этот элемент уже существует в корзине");
+        return prevKorzinka; // Возвращаем корзину без изменений
+      } else {
+        const itemToAdd = searchData?.length ? searchData.find((item) => item.id === id) : listData.find((item) => item.id === id);
+        if (itemToAdd) {
+          console.log("Элемент добавлен в корзину:", itemToAdd);
+          return [...prevKorzinka, { ...itemToAdd, quantity: 1 }];
+        }
+      }
+      return prevKorzinka; // Возвращаем корзину без изменений, если ничего не найдено
+    });
+  };
+
+  useEffect(() => {
+    try {
+        const savedKorzinka = JSON.parse(localStorage.getItem('korzinka')) || [];
+        setKorzinka(savedKorzinka);
+    } catch (error) {
+        console.error('Ошибка чтения из localStorage:', error);
+    }
+}, [setKorzinka]);
+
+useEffect(() => {
+    if (korzinka.length > 0) {
+        localStorage.setItem('korzinka', JSON.stringify(korzinka));
+    }
+}, [korzinka]);
   return (
     <div className='product'>
       <div className="product__container">
@@ -242,39 +307,10 @@ function Product() {
             <ul>
               {
                 listProduct[1] ?
-                  listProduct[1].map((e) => (
-                    <li onClick={() => navigate(`/products/${e.id}`)}>
-                      <Swiper
-                        spaceBetween={30}
-                        centeredSlides={true}
-                        autoplay={{
-                          delay: 2500,
-                          disableOnInteraction: false,
-                        }}
-                        pagination={{
-                          clickable: true,
-                        }}
-                        navigation={true}
-                        modules={[Autoplay, Pagination, Navigation]}
-                        className="mySwiper"
-                      >
-                        {
-                          e.image.map((t) => (
-                            <SwiperSlide id={t.image_id}><img src={t.image_url} alt="" /></SwiperSlide>
-                          ))
-                        }
-                      </Swiper>
-                      <div className="about_product">
-                        <h6>{e[`stock_${lan}`]} : {e.stock}</h6>
-                        <h2>{e[`list_name_${lan}`]}</h2>
-                        <p>{e[`list_text_${lan}`]}</p>
-                        <h3>{e[`price_${lan}`]} : {e.price}$</h3>
-                      </div>
-                    </li>
-                  ))
+                  ''
                   :
                   listProduct[0]?.map((e, i) => (
-                    <li onClick={() => navigate(`/products/${e.id}`)}>
+                    <li>
                       <Swiper
                         spaceBetween={30}
                         centeredSlides={true}
@@ -299,7 +335,23 @@ function Product() {
                         <h6>{e[`stock_${lan}`]} : {e.stock}</h6>
                         <h2>{e[`list_name_${lan}`]}</h2>
                         <p>{e[`list_text_${lan}`]}</p>
-                        <h3>{e[`price_${lan}`]} : {e.price}$</h3>
+                        <div>
+                          <h3>{e[`price_${lan}`]} : {e.price}$</h3>
+                          {
+                            user ?
+                              <button onClick={(event) => {
+                                event.stopPropagation() // Предотвращаем срабатывание onClick на <li>
+                                pushKorzinka(e.id)
+                              }}>
+                                <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                              </button> : <button onClick={(event) => {
+                                event.stopPropagation(); // Предотвращаем срабатывание onClick на <li>
+                                navigate('/signin');
+                              }}>
+                                <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                              </button>
+                          }
+                        </div>
                       </div>
                     </li>
                   ))

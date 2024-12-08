@@ -2,10 +2,14 @@ import React from 'react'
 import './Footer.scss'
 
 import Logo from '../../assets/image/logo.png'
+import { useLocation } from 'react-router-dom'
 
 function Footer({style}) {
+  const local = useLocation()
+  
+
   return (
-    <div className='footer' style={style}>
+    <div className='footer' style={local.pathname == '/korzinka' ? {display: "none"} : {display: "block"}}>
       <div className="footer__container">
         <div className="footer__container__inner">
           <div className="right">

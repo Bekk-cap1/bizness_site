@@ -12,6 +12,7 @@ import Catalog__product from './pages/Product/Catalog__product/Catalog__product'
 import { listData } from './assets/data/data';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
+import Korzinka from './pages/Korzinka/korzinka';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
         </Route>
         <Route path={number <= count? alona : ''} element={<Catalog__product/>} />
         <Route path='/about' element={<About/>}/>
+        <Route path='/korzinka' element={<Korzinka/>}/>
         <Route path='/signup' element={<SignUp/>}/> 
         <Route path='/signin' element={<SignIn/>}/> 
       </Routes>
