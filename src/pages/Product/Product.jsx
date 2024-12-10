@@ -307,7 +307,52 @@ useEffect(() => {
             <ul>
               {
                 listProduct[1] ?
-                  ''
+                  listProduct[1].map((e, i) => (
+                    <li key={e.id} onClick={() => navigate(`/products/${e.id}`)}>
+                      <Swiper
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                          delay: 2500,
+                          disableOnInteraction: false,
+                        }}
+                        pagination={{
+                          clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Autoplay, Pagination, Navigation]}
+                        className="mySwiper"
+                      >
+                        {
+                          e.image.map((t) => (
+                            <SwiperSlide id={t.image_id}><img src={t.image_url} alt="" /></SwiperSlide>
+                          ))
+                        }
+                      </Swiper>
+                      <div className="about_product">
+                        <h6>{e[`stock_${lan}`]} : {e.stock}</h6>
+                        <h2>{e[`list_name_${lan}`]}</h2>
+                        <p>{e[`list_text_${lan}`]}</p>
+                        <div>
+                          <h3>{e[`price_${lan}`]} : {e.price}$</h3>
+                          {
+                            user ?
+                              <button onClick={(event) => {
+                                event.stopPropagation() // Предотвращаем срабатывание onClick на <li>
+                                pushKorzinka(e.id)
+                              }}>
+                                <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                              </button> : <button onClick={(event) => {
+                                event.stopPropagation(); // Предотвращаем срабатывание onClick на <li>
+                                navigate('/signin');
+                              }}>
+                                <i className={korzinka.some((item) => item.id === e.id) ? "bi bi-cart-check" : "bi bi-cart-plus"}></i>
+                              </button>
+                          }
+                        </div>
+                      </div>
+                    </li>
+                  ))
                   :
                   listProduct[0]?.map((e, i) => (
                     <li key={e.id} onClick={() => navigate(`/products/${e.id}`)}>
