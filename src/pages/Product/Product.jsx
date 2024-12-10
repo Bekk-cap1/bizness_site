@@ -310,7 +310,7 @@ useEffect(() => {
                   ''
                   :
                   listProduct[0]?.map((e, i) => (
-                    <li>
+                    <li key={e.id} onClick={() => navigate(`/products/${e.id}`)}>
                       <Swiper
                         spaceBetween={30}
                         centeredSlides={true}

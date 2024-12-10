@@ -1,11 +1,10 @@
 .active {
-    color: #fff;
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 9999999;
     height: 90px;
     width: 100%;
-    background: #d802cf;
+    background: #ffcad4;
     transition: 0.5s ease-in-out;
 
 
@@ -22,7 +21,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #fff;
+            color: #3b292c;
 
             ul {
                 display: flex;
@@ -30,9 +29,10 @@
                 font-size: 22px;
 
                 a {
-                    color: #fff;
+                    color: #3b292c;
                     text-decoration: none;
                     margin: 0 20px;
+                    margin-top: 20px;
                     // text-transform: uppercase;
                 }
             }
@@ -41,9 +41,9 @@
                 width: 70px;
                 height: 40px;
                 font-size: 22px;
-                color: #fff;
-                background-color: rgb(255, 0, 255);
-                border: 1px solid rgb(255, 0, 255);
+                color: #3b292c;
+                background-color: #ffcad4;
+                border: 1px solid #ffcad4;
                 border-radius: 5px;
                 outline: none;
                 margin-left: 30px;
@@ -53,19 +53,38 @@
             .account__login {
                 display: flex;
                 align-items: center;
-                .basket__btn{
+
+                .basket__btn {
                     cursor: pointer;
                     font-size: 22px;
-                    border: 1px solid #00ff00;
+                    border: 1px solid #000;
                     background: none;
-                    color: #00ff00;
+                    color: #000000;
                     padding: 15px 10px;
                     border-radius: 5px;
                     margin: 0 10px;
+                    transition: 0.2s ease-in-out;
+
+
+                    &:hover {
+                        background-color: #21114b;
+                        /* Зелёный фон при наведении */
+                        color: #fff;
+                        /* Белый цвет текста при наведении */
+                    }
+
+                    &:active {
+                        transform: scale(0.98);
+                        /* Уменьшение кнопки при нажатии */
+                        transition: 0.2s ease-in-out;
+                        /* Плавная анимация */
+                    }
                 }
-                .signin__signup{
+
+                .signin__signup {
                     padding: 15px 0;
                 }
+
                 &__user {
                     display: flex;
                     align-items: center;
@@ -89,8 +108,8 @@
 
 .header__sass {
     width: 100%;
-    height: 80px;
-    background: rgb(255, 0, 255);
+    height: 90px;
+    background: #ffcad4;
     // background: linear-gradient(90deg, rgba(255, 0, 254, 1) 0%, rgba(121, 9, 94, 1) 51%, rgba(255, 0, 254, 1) 100%) repeat-x 0 100% fixed,
     //     linear-gradient(to top, #5080b1, #004e8c) fixed;
     // animation: city 10s linear infinite;
@@ -119,16 +138,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #fff;
+            color: #3b292c;
 
             ul {
                 display: flex;
                 list-style: none;
                 font-size: 22px;
-                padding: 20px 0;
+                padding: 20px 0 0 0;
 
                 a {
-                    color: #fff;
+                    color: #3b292c;
                     text-decoration: none;
                     margin: 0 20px;
                     text-transform: inherit;
@@ -142,9 +161,9 @@
                 width: 70px;
                 height: 40px;
                 font-size: 22px;
-                color: #fff;
-                background-color: rgb(255, 0, 255);
-                border: 1px solid rgb(255, 0, 255);
+                color: #3b292c;
+                background-color: #ffcad4;
+                border: 1px solid #ffcad4;
                 border-radius: 5px;
                 outline: none;
                 margin-left: 30px;
@@ -154,31 +173,44 @@
             .account__login {
                 display: flex;
                 align-items: center;
+
                 .basket__btn {
                     cursor: pointer;
                     font-size: 22px;
-                    border: 1px solid #00ff00; /* Зеленая граница */
-                    background: none; /* Без фона */
-                    color: #00ff00; /* Зеленый цвет текста */
-                    padding: 15px 10px; /* Отступы внутри кнопки */
-                    border-radius: 5px; /* Закругленные углы */
-                    margin: 0 10px; /* Отступы с боков */
-                    transition: all 0.2s ease-in-out; /* Плавный переход для всех изменений */
-                  
+                    border: 1px solid #000;
+                    /* Зеленая граница */
+                    background: none;
+                    /* Без фона */
+                    color: #000;
+                    /* Зеленый цвет текста */
+                    padding: 15px 10px;
+                    /* Отступы внутри кнопки */
+                    border-radius: 5px;
+                    /* Закругленные углы */
+                    margin: 0 10px;
+                    /* Отступы с боков */
+                    transition: all 0.2s ease-in-out;
+                    /* Плавный переход для всех изменений */
+
                     &:hover {
-                      background-color: #00ff00; /* Зелёный фон при наведении */
-                      color: #fff; /* Белый цвет текста при наведении */
+                        background-color: #21114b;
+                        /* Зелёный фон при наведении */
+                        color: #fff;
+                        /* Белый цвет текста при наведении */
                     }
-                  
+
                     &:active {
-                      transform: scale(0.98); /* Уменьшение кнопки при нажатии */
-                      transition: 0.2s ease-in-out; /* Плавная анимация */
+                        transform: scale(0.98);
+                        /* Уменьшение кнопки при нажатии */
+                        transition: 0.2s ease-in-out;
+                        /* Плавная анимация */
                     }
-                  }
-                  
-                .signin__signup{
+                }
+
+                .signin__signup {
                     padding: 15px 0;
                 }
+
                 &__user {
                     display: flex;
                     align-items: center;
@@ -202,11 +234,11 @@
 .login-btn {
     width: 120px;
     height: 50px;
-    background-color: #ff04f2;
+    background-color: #ffcad4;
     border: 0px;
     border-radius: 25px;
     cursor: pointer;
-    color: #fff;
+    color: #3b292c;
     box-shadow: 0px 0px 10px rgb(141, 136, 136);
     margin: 0 10px;
     font-size: 22px;
@@ -215,7 +247,7 @@
 
 @media screen and (max-width:1200px) {
     .active {
-        color: #fff;
+        color: #3b292c;
         position: fixed;
         top: 0;
         z-index: 999;
@@ -241,7 +273,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    color: #fff;
+                    color: #3b292c;
 
                     h1 {
                         width: 100%;
@@ -344,9 +376,9 @@
                             width: 70px;
                             height: 40px;
                             font-size: 22px;
-                            color: rgb(255, 0, 255);
+                            color: #ffcad4;
                             background-color: rgb(250, 250, 250);
-                            border: 1px solid rgb(255, 0, 255);
+                            border: 1px solid #ffcad4;
                             border-radius: 5px;
                             outline: none;
                             margin-left: 110px;
@@ -492,9 +524,9 @@
                             width: 70px;
                             height: 40px;
                             font-size: 22px;
-                            color: rgb(255, 0, 255);
+                            color: #ffcad4;
                             background-color: rgb(250, 250, 250);
-                            border: 1px solid rgb(255, 0, 255);
+                            border: 1px solid #ffcad4;
                             border-radius: 5px;
                             outline: none;
                             margin-left: 110px;
@@ -561,11 +593,14 @@
             .media {
                 .header__inner__media {
                     padding-top: 20px;
+
                     p {
                         margin-top: 00px;
+
                         span {
                             width: 20px;
                             height: 2px;
+
                             &::before,
                             &::after {
                                 width: 20px;
@@ -618,11 +653,14 @@
             .media {
                 .header__inner__media {
                     padding-top: 20px;
+
                     p {
                         margin-top: 00px;
+
                         span {
                             width: 20px;
                             height: 2px;
+
                             &::before,
                             &::after {
                                 width: 20px;
