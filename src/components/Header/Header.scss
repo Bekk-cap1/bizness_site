@@ -21,7 +21,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #3b292c;
+            color: #a55050;
 
             ul {
                 display: flex;
@@ -29,7 +29,7 @@
                 font-size: 22px;
 
                 a {
-                    color: #3b292c;
+                    color: #a55050;
                     text-decoration: none;
                     margin: 0 20px;
                     margin-top: 20px;
@@ -41,7 +41,7 @@
                 width: 70px;
                 height: 40px;
                 font-size: 22px;
-                color: #3b292c;
+                color: #a55050;
                 background-color: #ffcad4;
                 border: 1px solid #ffcad4;
                 border-radius: 5px;
@@ -138,7 +138,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #3b292c;
+            color: #a55050;
 
             ul {
                 display: flex;
@@ -147,7 +147,7 @@
                 padding: 20px 0 0 0;
 
                 a {
-                    color: #3b292c;
+                    color: #a55050;
                     text-decoration: none;
                     margin: 0 20px;
                     text-transform: inherit;
@@ -209,6 +209,9 @@
 
                 .signin__signup {
                     padding: 15px 0;
+                    &:active{
+                        border: none;
+                    }
                 }
 
                 &__user {
@@ -238,7 +241,7 @@
     border: 0px;
     border-radius: 25px;
     cursor: pointer;
-    color: #3b292c;
+    color: #a55050;
     box-shadow: 0px 0px 10px rgb(141, 136, 136);
     margin: 0 10px;
     font-size: 22px;
@@ -253,7 +256,7 @@
         z-index: 999;
         height: 80px;
         width: 100%;
-        background: #d802cf;
+        background: #ffcad4;
         transition: 0.5s ease-in-out;
 
         .container {
@@ -273,7 +276,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    color: #3b292c;
+                    color: #a55050;
 
                     h1 {
                         width: 100%;
@@ -347,11 +350,11 @@
                     width: 600px;
                     height: 600px;
                     border-radius: 15px;
-                    background-color: #ff04f2;
+                    background-color: #ffcad4;
                     position: absolute;
                     top: 100px;
                     z-index: 999;
-                    color: #fff;
+                    color: #a55050;
 
                     ul {
                         display: flex;

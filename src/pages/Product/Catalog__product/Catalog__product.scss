@@ -8,11 +8,11 @@
 
                 a {
                     cursor: pointer;
-                    color: #000;
+                    color: #a55050;
                 }
 
                 .a__catal {
-                    color: crimson;
+                    color: #a55050;
                 }
 
                 strong {
@@ -38,6 +38,7 @@
                     display: flex;
                     justify-content: space-between;
                     flex-direction: column;
+                    color: #a55050;
 
                     h2 {
                         font-size: 40px;
@@ -80,7 +81,7 @@
                             font-size: 18px;
 
                             strong {
-                                color: crimson;
+                                color: #a55050;
                             }
                         }
                     }
@@ -101,7 +102,7 @@
 
                         b {
                             font-size: 50px;
-                            color: crimson;
+                            color: #a55050;
                             margin-left: 40px;
                         }
 
@@ -257,7 +258,7 @@
             div {
                 h2 {
                     font-size: 40px;
-                    color: #031412;
+                    color: #a55050;
                 }
             }
         }
@@ -279,7 +280,7 @@
                 h2 {
                     font-size: 58px;
                     margin-bottom: 10px;
-                    color: #031412;
+                    color: #a55050;
                 }
 
                 button {

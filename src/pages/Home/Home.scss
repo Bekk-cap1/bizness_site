@@ -164,7 +164,7 @@
                         border-radius: 25px;
                         border: none;
                         background: #ffcad4;
-                        color: #000;
+                        color: #a55050;
                         font-size: 22px;
                         z-index: 1;
                         transition: 0.2s ease-in-out;
@@ -196,13 +196,13 @@
                     // -webkit-background-clip: text;
                     margin-top: 50px;
                     margin-bottom: 0;
-                    color: rgba(0, 0, 0, 0.719);
+                    color: #a55050;
                     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 }
 
                 hr {
                     width: 100%;
-                    border: 1px solid rgba(255, 0, 254, 1);
+                    border: 1px solid #ffcad4;
                 }
 
                 ul {
@@ -254,7 +254,7 @@
 
                         .about_product {
                             padding-bottom: 20px;
-                            color: #2e192b;
+                            color: #a55050;
 
                             h6 {
                                 font-size: 14px;
@@ -282,14 +282,14 @@
                                     width: 100px;
                                     height: 50px;
                                     background: none;
-                                    border: 1px solid #ffcad4;
+                                    border: 1px solid #a55050;
                                     border-radius: 15px;
                                     cursor: pointer;
                                     z-index: 9999;
                                 }
                                 i{
                                     font-size: 30px;
-                                    color: #ffaab9;
+                                    color: #a55050;
                                 }
                             }
                         }
