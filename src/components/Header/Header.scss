@@ -209,7 +209,8 @@
 
                 .signin__signup {
                     padding: 15px 0;
-                    &:active{
+
+                    &:active {
                         border: none;
                     }
                 }
@@ -253,7 +254,7 @@
         color: #3b292c;
         position: fixed;
         top: 0;
-        z-index: 999;
+        z-index: 9999;
         height: 80px;
         width: 100%;
         background: #ffcad4;
@@ -287,6 +288,7 @@
                         height: 30px;
                         margin-top: 20px;
                         cursor: pointer;
+                        margin-right: 20px;
 
                         span {
                             width: 32px;
@@ -546,6 +548,8 @@
 
 @media screen and (max-width: 860px) {
     .active {
+        z-index: 9999;
+
         .container {
             .media {
                 .active__menu {
@@ -568,6 +572,8 @@
 
 @media screen and (max-width: 770px) {
     .active {
+        z-index: 9999;
+
         .container {
             .media {
                 .active__menu {
@@ -593,6 +599,7 @@
 @media screen and (max-width: 560px) {
     .active {
         .container {
+            z-index: 9999;
             .media {
                 .header__inner__media {
                     padding-top: 20px;
@@ -715,6 +722,7 @@
 
 @media screen and (max-width: 400px) {
     .active {
+        z-index: 9999;
         .container {
             .media {
                 .header__inner__media {
