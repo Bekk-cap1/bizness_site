@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, {  useEffect } from 'react'
 import { useState } from 'react'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { SwiperSlide, Swiper } from 'swiper/react'
@@ -7,8 +7,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './Product.scss'
-import { Context } from '../../assets/Context/Context'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setKorzinka } from '../../features/app/appSlice'
 
 const listArr = []
 const listArr2 = []
@@ -32,7 +33,7 @@ function Product() {
 
   const navigate = useNavigate()
 
-  const lan = window.localStorage.getItem('language')
+  const lan = useSelector(state=> state.app.language)
 
   const SearchDataList = []
   const [searchData, setSearchData] = useState()
@@ -57,15 +58,6 @@ function Product() {
     })
     setSearchData(SearchDataList)
   }
-  // listData.map((e, i) => {
-  //   const mat = Math.floor(((i) / 12) + 1)
-  //   if (listPagenation.find((item) => item == mat)) {
-  //     console.log();
-  //   } else {
-  //     listPagenation.push(mat)
-  //     // console.log(listPagenation);
-  //   }
-  // })
 
   const typeData = []
   const [data, setData] = useState()
@@ -102,7 +94,6 @@ function Product() {
   const selType = (e) => {
     const el = e.target.value
     setCount(count + 1)
-    // console.log(listProduct[0].sort(function (a, b) { return a.price - b.price }));
     if (searchData) {
       if (searchData.length !== 0) {
         if (el == 'ascending') {
@@ -224,13 +215,13 @@ function Product() {
       });
   }, []);
 
-
-  const { korzinka, setKorzinka } = useContext(Context); // Инициализация как пустого массива
+  const dispatch = useDispatch()
+  const korzinka = useSelector(state=> state.app.korzinka)
   useEffect(() => {
 
   }, [korzinka]);
   const pushKorzinka = (id) => {
-    setKorzinka((prevKorzinka) => {
+    dispatch(setKorzinka((prevKorzinka) => {
       // Проверяем, есть ли элемент в текущем состоянии корзины
       const itemExists = prevKorzinka.some((item) => item.id === id);
       if (itemExists) {
@@ -244,13 +235,13 @@ function Product() {
         }
       }
       return prevKorzinka; // Возвращаем корзину без изменений, если ничего не найдено
-    });
+    }));
   };
 
   useEffect(() => {
     try {
         const savedKorzinka = JSON.parse(localStorage.getItem('korzinka')) || [];
-        setKorzinka(savedKorzinka);
+        dispatch(setKorzinka(savedKorzinka));
     } catch (error) {
         console.error('Ошибка чтения из localStorage:', error);
     }

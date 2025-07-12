@@ -1,16 +1,20 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { dataPage } from "../../assets/data/data";
 import "./Header.scss";
 import User__foto from "../../assets/image/user.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Context } from "../../assets/Context/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { setLanguage } from "../../features/app/appSlice";
 
 function Header() {
   const userId = window.sessionStorage.getItem("userId");
   const [userData, setUserData] = useState([]);
   const [scrol, setScrol] = useState(false);
   const [menu, setMenu] = useState(false);
-  const [language, setLanguage] = useState(window.localStorage.getItem("language") || "ru");
+
+  const dispatch = useDispatch()
+  const language = useSelector(state=>state.app.language)  
+
 
   const offSet = 100;
   const getTop = () => window.pageYOffset || document.documentElement.scrollTop;
@@ -19,7 +23,6 @@ function Header() {
   const navigate = useNavigate();
   const local = useLocation();
 
-  const { language: contextLanguage, setLanguage: setContextLanguage } = useContext(Context);
 
   // Обработка скролла для изменения стилей хедера
   useEffect(() => {
@@ -70,8 +73,7 @@ function Header() {
   // Переключение языка
   const select_langu = (e) => {
     const selectedLanguage = e.target.value;
-    setLanguage(selectedLanguage);
-    setContextLanguage(selectedLanguage); // Обновляем контекстный язык
+    dispatch(setLanguage(selectedLanguage));
     window.localStorage.setItem("language", selectedLanguage);
   };
 

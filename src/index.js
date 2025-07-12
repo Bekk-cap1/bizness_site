@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { Provider } from './assets/Context/Context';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider>
+      <Provider store={store}>
         <StyledEngineProvider injectFirst>
           <App />
         </StyledEngineProvider>

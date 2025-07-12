@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import './korzinka.scss'
-import { Context } from '../../assets/Context/Context'
 import { listData } from '../../assets/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,10 +7,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Modal } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { setKorzinka } from '../../features/app/appSlice';
 
 function Basket() {
-
-    const { korzinka, setKorzinka } = useContext(Context)
+    const dispatch = useDispatch()
+    const korzinka = useSelector(state=> state.app.korzinka)
     const lan = window.localStorage.getItem('language');
     const [count, setCount] = useState(1)
     console.log(korzinka);
@@ -19,7 +20,7 @@ function Basket() {
     useEffect(() => {
         try {
             const savedKorzinka = JSON.parse(localStorage.getItem('korzinka')) || [];
-            setKorzinka(savedKorzinka);
+            dispatch(setKorzinka(savedKorzinka));
         } catch (error) {
             console.error('Ошибка чтения из localStorage:', error);
         }
@@ -32,20 +33,20 @@ function Basket() {
     }, [korzinka]);
     // const product = listData.find((item) => item.id == productIdToFind);
     const removeFromKorzinka = (id) => {
-        setKorzinka((prev) => {
+        dispatch(setKorzinka((prev) => {
             const updatedKorzinka = prev.filter((item) => item.id !== id);
             localStorage.setItem('korzinka', JSON.stringify(updatedKorzinka)); // Обновление localStorage
             return updatedKorzinka;
-        });
+        }));
     };
 
 
     const updateQuantity = (id, newQuantity) => {
-        setKorzinka((prev) =>
+        dispatch(setKorzinka((prev) =>
             prev.map((item) =>
                 item.id === id ? { ...item, quantity: newQuantity } : item
             )
-        );
+        ));
     };
 
     const [deliver, setDeliver] = useState(false)

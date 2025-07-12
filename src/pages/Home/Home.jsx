@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useRef, useState } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
 import './Home.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -7,7 +7,8 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { dataPage, dataPoisk, dataSearch, listData } from '../../assets/data/data';
 import { useNavigate } from 'react-router-dom';
-import { Context } from '../../assets/Context/Context';
+import { useDispatch, useSelector } from 'react-redux';
+import { setKorzinka } from '../../features/app/appSlice';
 
 function Home() {
   const progressCircle = useRef(null);
@@ -19,7 +20,7 @@ function Home() {
   };
 
   const navigate = useNavigate();
-  const lan = window.localStorage.getItem('language');
+  const lan = useSelector(state=>state.app.language);
   const userId = window.sessionStorage.getItem("userId");
   const [userData, setUserData] = useState([]);
 
@@ -68,7 +69,9 @@ function Home() {
 
   const listHome = searchData.length ? searchData : listData.slice(-10, -1);
 
-  const { korzinka, setKorzinka } = useContext(Context); // Инициализация как пустого массива
+
+  const dispatch = useDispatch()
+  const korzinka = useSelector(state=>state.app.korzinka)
   const pushKorzinka = (id) => {
     // Проверяем, есть ли элемент в корзине
     const itemExists = korzinka.some((item) => item.id === id);
@@ -78,10 +81,10 @@ function Home() {
       const itemToAdd = listHome.find((item) => item.id === id);
       if (itemToAdd) {
         // Добавляем элемент с полем quantity
-        setKorzinka((prevKorzinka) => [
+        dispatch(setKorzinka((prevKorzinka) => [
           ...prevKorzinka,
           { ...itemToAdd, quantity: 1 }
-        ]);
+        ]));
         console.log("Элемент добавлен в корзину:", itemToAdd);
       }
     }
@@ -90,7 +93,7 @@ function Home() {
   useEffect(() => {
     try {
       const savedKorzinka = JSON.parse(localStorage.getItem('korzinka')) || [];
-      setKorzinka(savedKorzinka);
+      dispatch(setKorzinka(savedKorzinka));
     } catch (error) {
       console.error('Ошибка чтения из localStorage:', error);
     }

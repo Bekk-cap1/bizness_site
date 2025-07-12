@@ -5,27 +5,33 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import About from './pages/About/About';
 import Product from './pages/Product/Product';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NotFound from './pages/NotFound/NotFound';
-import { Context } from './assets/Context/Context';
 import Catalog__product from './pages/Product/Catalog__product/Catalog__product';
 import { listData } from './assets/data/data';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import Korzinka from './pages/Korzinka/korzinka';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNumber, setPage } from './features/app/appSlice';
 
 function App() {
+  const dispatch = useDispatch()
 
   const local = useLocation()
-  const {number, setNumber} = useContext(Context)
+  const number = useSelector(state=> state.app.number)
+  const page = useSelector(state => state.app.page)
+
+
   const {userId} = useParams()
   let navig = local.pathname.split('/products/').join('') 
   useEffect(()=>{
-    setNumber(navig)
+    dispatch(setNumber(navig))
   }, [navig])
   const alona = '/products/' + number
-  const {page, setPage} = useContext(Context)
-  setPage(alona)
+
+
+  dispatch(setPage(alona))
 
   const [count, setCount] = useState(0)
   useEffect(()=>{

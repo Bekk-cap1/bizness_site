@@ -1,12 +1,9 @@
 
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Header from '../../../components/Header/Header'
+import React, {  useEffect, useRef, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './Catalog__product.scss'
 import logo from '../../../assets/image/logo.png'
-import { Context } from '../../../assets/Context/Context'
 import { listData, opisanie } from '../../../assets/data/data'
-import Footer from '../../../components/Footer/Footer'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -15,6 +12,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
+import { useDispatch, useSelector } from 'react-redux'
+import { setKorzinka } from '../../../features/app/appSlice'
 
 function Catalog__product() {
     const catRef = useRef()
@@ -59,12 +58,15 @@ function Catalog__product() {
                 console.error("Ошибка при выполнении запроса:", error);
             });
     }, []);
-    const { korzinka, setKorzinka } = useContext(Context); // Инициализация как пустого массива
+
+
+    const dispatch = useDispatch()
+    const korzinka = useSelector(state=>state.app.korzinka)
     useEffect(() => {
 
     }, [korzinka]);
     const pushKorzinka = (id) => {
-        setKorzinka((prevKorzinka) => {
+        dispatch(setKorzinka((prevKorzinka) => {
             // Проверяем, есть ли элемент в текущем состоянии корзины
             const itemExists = prevKorzinka.some((item) => item.id === id);
             if (itemExists) {
@@ -78,7 +80,7 @@ function Catalog__product() {
                 }
             }
             return prevKorzinka; // Возвращаем корзину без изменений, если ничего не найдено
-        });
+        }));
     };
 
     return (
